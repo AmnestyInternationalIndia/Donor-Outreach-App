@@ -1,0 +1,70 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context="in.org.amnesty.outreach.fragments.CitySelectorFragment">
+
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?attr/colorPrimary"
+		android:minHeight="?attr/actionBarSize"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="24dp">
+
+
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:orientation="vertical"
+			>
+
+
+			<LinearLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:orientation="vertical"
+				android:padding="4dp"
+				>
+
+				<RelativeLayout
+					android:id="@+id/empty"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent">
+
+					<TextView
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:text="Loading ..."
+						android:textSize="20sp"
+						android:layout_centerInParent="true"/>
+
+				</RelativeLayout>
+
+				<ListView
+					android:id="@+id/cityList"
+					android:layout_width="300dp"
+					android:layout_height="300dp"
+					android:layout_centerInParent="true"
+					/>
+			</LinearLayout>
+
+
+			<Button
+				android:id="@+id/downloadButton"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="right"
+				android:text="Download"
+				android:visibility="gone"/>
+		</LinearLayout>
+	</RelativeLayout>
+</LinearLayout>

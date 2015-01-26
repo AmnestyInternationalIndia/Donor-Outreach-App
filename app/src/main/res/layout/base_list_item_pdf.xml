@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			  android:orientation="vertical"
+			  android:layout_width="match_parent"
+			  android:layout_height="wrap_content"
+			  android:paddingTop="16dp"
+			  android:paddingBottom="16dp"
+			  android:paddingRight="16dp">
+
+	<android.support.v7.widget.CardView
+		xmlns:card_view="http://schemas.android.com/apk/res-auto"
+		android:id="@+id/card_view"
+		android:layout_gravity="center"
+		android:layout_width="match_parent"
+		android:layout_height="200dp"
+		card_view:cardCornerRadius="4dp">
+
+
+	<LinearLayout
+		android:orientation="vertical"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<ImageView
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:id="@+id/thumbnailImageView"
+			android:layout_weight="1"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="Medium Text"
+			android:id="@+id/fileNameView"
+			android:singleLine="true"
+			android:drawablePadding="16dp"
+			android:ellipsize="marquee"
+			android:paddingLeft="16dp"
+			android:paddingTop="4dp"
+			android:paddingBottom="4dp"/>
+
+		<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="Read"
+			android:id="@+id/readFile"
+			android:singleLine="true"
+			android:drawablePadding="16dp"
+			android:ellipsize="marquee"
+			android:paddingLeft="16dp"
+			android:paddingBottom="4dp"
+			android:paddingTop="4dp"
+			android:textColor="@android:color/holo_blue_light"/>
+	</LinearLayout>
+	</android.support.v7.widget.CardView>
+</LinearLayout>

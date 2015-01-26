@@ -1,0 +1,124 @@
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".HomeActivity$PlaceholderFragment">
+
+	<android.support.v4.widget.DrawerLayout
+		android:id="@+id/drawerLayout"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fitsSystemWindows="true">
+
+		<!-- Your normal content view -->
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical">
+
+			<!-- We use a Toolbar so that our drawer can be displayed
+				 in front of the action bar -->
+			<android.support.v7.widget.Toolbar
+				android:id="@+id/toolbar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:background="?attr/colorPrimary"
+				android:minHeight="?attr/actionBarSize"/>
+
+			<!-- The rest of your content view -->
+
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:orientation="vertical">
+
+
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:orientation="vertical">
+
+					<TextView
+						android:id="@+id/textView6"
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="Videos"
+						android:textAppearance="?android:attr/textAppearanceMedium"
+						android:textSize="18sp"
+						android:paddingTop="4dp"
+						android:paddingBottom="4dp"
+						android:paddingLeft="16dp"
+						android:paddingRight="16dp"
+						android:background="#ceecee"/>
+
+					<in.org.amnesty.outreach.views.RecyclerPlusView
+						android:id="@+id/videoRecyclerView"
+						android:layout_width="match_parent"
+						android:layout_height="match_parent"
+						android:scrollbars="vertical"
+						android:paddingLeft="16dp"
+						android:paddingRight="16dp"
+						android:paddingTop="4dp"
+						android:paddingBottom="4dp"/>
+
+				</LinearLayout>
+
+				<LinearLayout
+					android:layout_width="fill_parent"
+					android:layout_height="0dp"
+					android:layout_weight="1"
+					android:orientation="vertical">
+
+					<TextView
+						android:layout_width="match_parent"
+						android:layout_height="wrap_content"
+						android:text="PDFs"
+						android:textAppearance="?android:attr/textAppearanceMedium"
+						android:textSize="18sp"
+						android:paddingTop="4dp"
+						android:paddingBottom="4dp"
+						android:paddingLeft="16dp"
+						android:paddingRight="16dp"
+						android:background="#ceecee"/>
+
+					<!--<android.support.v7.widget.RecyclerView-->
+					<!--android:id="@+id/pdfRecyclerView"-->
+					<!--android:layout_width="match_parent"-->
+					<!--android:layout_height="match_parent"-->
+					<!--android:scrollbars="vertical"-->
+					<!--android:paddingLeft="16dp"-->
+					<!--android:paddingTop="4dp"-->
+					<!--android:paddingRight="16dp"-->
+					<!--android:paddingBottom="4dp"/>-->
+
+				</LinearLayout>
+			</LinearLayout>
+		</LinearLayout>
+
+		<!-- Your drawer view. This can be any view, LinearLayout
+			 is just an example. As we have set fitSystemWindows=true
+			 this will be displayed under the status bar. -->
+		<LinearLayout
+			android:layout_width="304dp"
+			android:layout_height="match_parent"
+			android:layout_gravity="left|start"
+			android:background="#fafafa"
+			android:fitsSystemWindows="true"
+			>
+
+			<fragment
+				android:id="@+id/navigationDrawer"
+				android:name="in.org.amnesty.outreach.fragments.NavigationDrawerFragment"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_gravity="start" />
+
+		</LinearLayout>
+
+	</android.support.v4.widget.DrawerLayout>
+
+</RelativeLayout>

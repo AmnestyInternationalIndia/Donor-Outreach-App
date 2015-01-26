@@ -1,0 +1,58 @@
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	tools:context="in.org.amnesty.outreach.fragments.CitySelectorFragment">
+
+	<android.support.v7.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="?attr/colorPrimary"
+		android:minHeight="?attr/actionBarSize"/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_gravity="center"
+		android:padding="24dp">
+
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:orientation="vertical">
+
+
+			<TextView
+				android:id="@+id/statusTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Starting download ..."
+				android:textSize="20sp"
+				android:layout_marginBottom="4dp"/>
+
+			<TextView
+				android:id="@+id/currentItemTextView"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textSize="14sp"
+				android:layout_marginBottom="4dp"/>
+
+			<ProgressBar
+				android:id="@+id/downloadProgressBar"
+				style="?android:attr/progressBarStyleHorizontal"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:indeterminate="true"/>
+
+		</LinearLayout>
+
+
+
+	</RelativeLayout>
+</LinearLayout>

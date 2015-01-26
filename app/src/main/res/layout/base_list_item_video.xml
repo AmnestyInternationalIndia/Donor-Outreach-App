@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	>
+
+	<android.support.v7.widget.CardView
+		android:id="@+id/card_view"
+		xmlns:card_view="http://schemas.android.com/apk/res-auto"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		card_view:cardCornerRadius="4dp"
+		android:layout_gravity="center">
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		>
+
+		<ImageView
+			android:id="@+id/thumbnailImageView"
+			android:layout_width="200dp"
+			android:layout_height="0dp"
+			android:scaleType="fitXY"
+			android:layout_weight="1"/>
+
+		<TextView
+			android:id="@+id/fileNameView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:drawablePadding="16dp"
+			android:ellipsize="marquee"
+			android:paddingBottom="4dp"
+			android:paddingLeft="16dp"
+			android:paddingTop="4dp"
+			android:singleLine="true"
+			android:text="Medium Text"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:visibility="visible"
+			android:layout_gravity="right"/>
+
+		<LinearLayout
+			android:orientation="horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+			<Button
+				style="?android:attr/borderlessButtonStyle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Share"
+				android:id="@+id/shareFile"
+				android:textAllCaps="true"
+				android:textColor="@android:color/holo_orange_light"/>
+
+			<Button
+				style="?android:attr/borderlessButtonStyle"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Play"
+				android:id="@+id/playFile"
+				android:textAllCaps="true"
+				android:textColor="@android:color/holo_blue_light"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+
+	</android.support.v7.widget.CardView>
+</LinearLayout>
