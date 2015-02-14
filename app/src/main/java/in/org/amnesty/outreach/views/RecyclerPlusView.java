@@ -7,22 +7,6 @@ import android.view.View;
 
 public class RecyclerPlusView extends RecyclerView {
 
-    private View emptyView;
-
-    public RecyclerPlusView(Context context) { super(context); }
-
-    public RecyclerPlusView(Context context, AttributeSet attrs) { super(context, attrs); }
-
-    public RecyclerPlusView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
-
-    private void checkIfEmpty() {
-        if (emptyView != null && getAdapter() != null) {
-            emptyView.setVisibility(getAdapter().getItemCount() > 0 ? GONE : VISIBLE);
-        }
-    }
-
     private final AdapterDataObserver observer = new AdapterDataObserver() {
         @Override
         public void onChanged() {
@@ -39,6 +23,21 @@ public class RecyclerPlusView extends RecyclerView {
             checkIfEmpty();
         }
     };
+    private View emptyView;
+
+    public RecyclerPlusView(Context context) { super(context); }
+
+    public RecyclerPlusView(Context context, AttributeSet attrs) { super(context, attrs); }
+
+    public RecyclerPlusView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
+
+    private void checkIfEmpty() {
+        if (emptyView != null && getAdapter() != null) {
+            emptyView.setVisibility(getAdapter().getItemCount() > 0 ? GONE : VISIBLE);
+        }
+    }
 
     @Override
     public void setAdapter(Adapter adapter) {

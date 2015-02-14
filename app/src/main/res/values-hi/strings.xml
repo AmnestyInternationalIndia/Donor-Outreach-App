@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Outreach</string>
+	<string name="activity_title_downloading">डाउनलोड हो रहा है</string>
+	<string name="activity_title_select_city">अपना शहर चुनें</string>
+	<string name="button_logout">हाँ, लॉगआउट करें</string>
+	<string name="content_description_account_image">ख़ाता फ़ोटो</string>
+	<string name="content_description_image">फ़ोटो</string>
+	<string name="content_description_thumbnail">फ़ोटो</string>
+	<string name="google">गूगल</string>
+	<string name="label_download">डाउनलोड</string>
+	<string name="label_images">फ़ोटो</string>
+	<string name="label_logo">लोगो</string>
+	<string name="label_of">/</string>
+	<string name="label_logout">लॉगआउट</string>
+	<string name="label_open">खोलें</string>
+	<string name="label_pdf">पीडीएफ</string>
+	<string name="label_play">देखें</string>
+	<string name="label_read">पढ़ें</string>
+	<string name="label_send_to">भेजें</string>
+	<string name="label_share">साझा करें</string>
+	<string name="label_sync">सिंक</string>
+	<string name="label_starred">उल्लेखित</string>
+	<string name="label_videos">वीडियो</string>
+	<string name="message_connection_progress">संपर्क कर रहा है</string>
+	<string name="message_download_complete">डाउनलोड हो गया</string>
+	<string name="message_download_start">डाउनलोड शुरू हो रहा है</string>
+	<string name="message_downloading">डाउनलोड हो रहा है</string>
+	<string name="message_logout">ध्यान से, आपके सारे डाउनलोड नष्ट कर दिए जायेंगे</string>
+	<string name="message_logout_progress">लॉगआउट हो रहा है</string>
+	<string name="message_no_content">कोई डेटा नहीं है</string>
+	<string name="no_external_storage">बाहरी संचरण उपलब्ध नहीं है</string>
+	<string name="no_internet_access">इंटरनेट उपलब्ध नहीं है</string>
+	<string name="play_services">प्ले सेवाएं</string>
+</resources>

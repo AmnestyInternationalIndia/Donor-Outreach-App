@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<color name="blue">#ffa2baff</color>
+	<color name="blue">#ff2196f3</color>
 	<color name="blue_dark">#ff3e8be0</color>
-	<color name="blue_accent">#ffa3bce0</color>
-    <color name="black_light">#454545</color>
+	<color name="blue_accent">#a3bce0</color>
+	<color name="black_bold">#151515</color>
+	<color name="black_light">#454545</color>
+	<color name="black_extra_light">#808080</color>
+	<!-- card colors -->
+	<color name="card_background">#ffffff</color>
+	<color name="card_shadow_1">#d4d4d4</color>
+	<color name="card_shadow_2">#dddddd</color>
+	<color name="card_detailing">#eee</color>
+	<color name="transparent">#00000000</color>
 </resources>

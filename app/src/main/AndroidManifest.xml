@@ -1,57 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="in.org.amnesty.outreach" >
+<manifest
+	package="in.org.amnesty.outreach"
+	xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+	<uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+	<uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+	<uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK"/>
 
-    <application
+
+	<application
 		android:name=".OutreachApplication"
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.Outreach" >
-        <activity
-            android:name=".activity.HomeActivity"
-            android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+		android:allowBackup="true"
+		android:icon="@drawable/ic_launcher"
+		android:label="@string/app_name"
+		android:theme="@style/Theme.Outreach">
+		<activity
+			android:name=".activity.HomeActivity"
+			android:label="@string/app_name">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+		</activity>
 
 		<service
 			android:name=".services.DownloadService"
 			android:enabled="true"
-			android:exported="false" >
+			android:exported="false">
 		</service>
 
-		<receiver android:name=".receivers.DownloadBroadcastReceiver"
-				  android:enabled="true"
-				  android:exported="false" >
+		<receiver
+			android:name=".receivers.DownloadBroadcastReceiver"
+			android:enabled="true"
+			android:exported="true">
 			<intent-filter>
-				<action android:name="in.org.amnesty.outreach.download.start" />
-
-				<category android:name="android.intent.category.DEFAULT" />
+				<action android:name="in.org.amnesty.outreach.intent.action.DOWNLOAD_START"/>
+				<category android:name="android.intent.category.DEFAULT"/>
 			</intent-filter>
 
-				  </receiver>
+		</receiver>
 
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.crashlytics.ApiKey"
-            android:value="1293eb841cb0c6fad272055247fd16354fe51889" />
+		<meta-data
+			android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version"/>
+		<meta-data
+			android:name="com.crashlytics.ApiKey"
+			android:value="1293eb841cb0c6fad272055247fd16354fe51889"/>
 
 
-    </application>
+	</application>
 
 </manifest>

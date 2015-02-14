@@ -3,9 +3,9 @@
 	  xmlns:tools="http://schemas.android.com/tools"
 	  tools:context=".HomeActivity">
 	<item
-		android:id="@+id/action_settings"
-		android:orderInCategory="100"
-		android:title="Sync"
+		android:id="@+id/action_sync"
 		android:icon="@drawable/ic_action_notification_sync"
-		app:showAsAction="always"/>
+		android:orderInCategory="100"
+		android:title="@string/label_sync"
+		app:showAsAction="always|withText"/>
 </menu>

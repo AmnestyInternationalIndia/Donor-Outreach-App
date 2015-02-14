@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.android.gms.common.SignInButton;
 import com.google.api.services.plus.Plus;
@@ -48,9 +49,6 @@ public class SplashFragment extends BaseFragment implements View.OnClickListener
         View splashView = inflater.inflate(R.layout.fragment_splash, null);
         mSignInButton = (SignInButton) splashView.findViewById(R.id.sign_in_button);
         ProgressBar mProgressBar = (ProgressBar) splashView.findViewById(R.id.progressBar);
-
-        getParentActivity().setProgressBar(mProgressBar);
-
         getParentActivity().setCurrentFragmentTag(HomeActivity.TAG_SPLASH_FRAGMENT);
 
         return splashView;
@@ -60,15 +58,15 @@ public class SplashFragment extends BaseFragment implements View.OnClickListener
     public void onResume() {
         super.onResume();
 
-        boolean mIsSetupComplete = Utils.PreferenceUtils.getBooleanPrefs(getActivity(),
-                Utils.PreferenceUtils.APP_INITIALIZATION_STATUS);
-        mIsGoogleConnected = Utils.PreferenceUtils.getBooleanPrefs(getActivity(),
-                Utils.PreferenceUtils.GOOGLE_CONNECT_STATUS);
+        boolean mIsSetupComplete = Utils.Preferences.getBooleanPrefs(getActivity(),
+                Utils.Preferences.APP_INITIALIZATION_STATUS);
+        mIsGoogleConnected = Utils.Preferences.getBooleanPrefs(getActivity(),
+                Utils.Preferences.GOOGLE_CONNECT_STATUS);
 
         if (mIsGoogleConnected) {
             if (!mIsSetupComplete) {
                 mSignInButton.setVisibility(View.INVISIBLE);
-                next(HomeActivity.FRAGMENT_CITY_SELECTOR);
+                next(HomeActivity.FRAGMENT_SETUP);
             } else {
                 mSignInButton.setVisibility(View.INVISIBLE);
                 next(HomeActivity.FRAGMENT_HOME);
@@ -83,7 +81,12 @@ public class SplashFragment extends BaseFragment implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.sign_in_button:
-               getParentActivity().chooseAccount();
+                if (!Utils.Device.enabled(getParentActivity(), Utils.Device.INTERNET)) {
+                    Toast.makeText(getParentActivity(), getString(R.string.no_internet_access), Toast.LENGTH_SHORT)
+                         .show();
+                } else {
+                    getParentActivity().chooseAccount();
+                }
         }
     }
 
@@ -106,13 +109,17 @@ public class SplashFragment extends BaseFragment implements View.OnClickListener
                         new PersonLoaderTask(getActivity(),
                                 getParentActivity().getPlusService()).execute();
                         break;
+                    case HomeActivity.REQUEST_AUTHORIZATION:
+                        new PersonLoaderTask(getActivity(),
+                                getParentActivity().getPlusService()).execute();
+                        break;
                 }
         }
     }
 
     public void next(final int next) {
         int secondsDelayed;
-        if (Utils.PreferenceUtils.getBooleanPrefs(getParentActivity(), Utils.PreferenceUtils.SPLASH_STATUS)) {
+        if (Utils.Preferences.getBooleanPrefs(getParentActivity(), Utils.Preferences.SPLASH_STATUS)) {
             secondsDelayed = ONE_SECOND;
         } else {
             secondsDelayed = ZERO_SECONDS;
@@ -121,8 +128,10 @@ public class SplashFragment extends BaseFragment implements View.OnClickListener
             @Override
             public void run() {
                 switch (next) {
-                    case HomeActivity.FRAGMENT_CITY_SELECTOR:
-                        getParentActivity().switchFragment(HomeActivity.FRAGMENT_CITY_SELECTOR, null);
+                    case HomeActivity.FRAGMENT_SETUP:
+                        Bundle bundle = new Bundle();
+                        bundle.putInt(BaseTabFragment.BUNDLE_CURRENT_TYPE, SetupFragment.TYPE_CITY);
+                        getParentActivity().switchFragment(HomeActivity.FRAGMENT_SETUP, bundle);
                         break;
                     default:
                         getParentActivity().switchFragment(HomeActivity.FRAGMENT_HOME, null);
@@ -148,7 +157,7 @@ public class SplashFragment extends BaseFragment implements View.OnClickListener
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mActivity.showProgressDialog();
+            mActivity.showProgressDialog(null);
         }
 
         @Override
@@ -161,14 +170,18 @@ public class SplashFragment extends BaseFragment implements View.OnClickListener
             super.onPostExecute(result);
             mActivity.hideProgressDialog();
             if (mPerson != null) {
-                Utils.PreferenceUtils.setStringPrefs(mContext, Utils.PreferenceUtils.ACCOUNT_USER_NAME, mPerson.getDisplayName());
-                Utils.PreferenceUtils.setStringPrefs(mContext, Utils.PreferenceUtils.ACCOUNT_USER_IMAGE_URL, mPerson.getImage().getUrl());
-                Utils.PreferenceUtils.setStringPrefs(mContext,
-                        Utils.PreferenceUtils.ACCOUNT_REGISTRATION_DATE, Utils.getFormattedDate(System.currentTimeMillis(),
-                        "dd-MMMM-yyyy"));
-                Utils.PreferenceUtils.setBooleanPrefs(getParentActivity(),
-                        Utils.PreferenceUtils.GOOGLE_CONNECT_STATUS,true);
-                next(HomeActivity.FRAGMENT_CITY_SELECTOR);
+                Utils.Preferences
+                        .setStringPrefs(mContext, Utils.Preferences.ACCOUNT_USER_NAME, mPerson.getDisplayName());
+                Utils.Preferences
+                        .setStringPrefs(mContext, Utils.Preferences.ACCOUNT_USER_IMAGE_URL,
+                                mPerson.getImage().getUrl());
+                Utils.Preferences.setStringPrefs(mContext,
+                        Utils.Preferences.ACCOUNT_REGISTRATION_DATE, Utils.Text.formatDate(System
+                                        .currentTimeMillis(),
+                                Utils.Constants.DEFAULT_DATE_FORMAT));
+                Utils.Preferences.setBooleanPrefs(getParentActivity(),
+                        Utils.Preferences.GOOGLE_CONNECT_STATUS, true);
+                next(HomeActivity.FRAGMENT_SETUP);
             }
         }
     }

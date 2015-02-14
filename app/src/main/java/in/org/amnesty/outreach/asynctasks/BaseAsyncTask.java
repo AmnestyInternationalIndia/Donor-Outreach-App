@@ -11,14 +11,12 @@ import java.io.IOException;
 import in.org.amnesty.outreach.activity.HomeActivity;
 import in.org.amnesty.outreach.helpers.Utils;
 
-/**
- * Created by rachit on 22/1/15.
- */
-public abstract class BaseAsyncTask extends AsyncTask<Void, Void, Boolean>{
+
+public abstract class BaseAsyncTask extends AsyncTask<Void, Void, Boolean> {
 
     protected final HomeActivity mActivity;
 
-    public BaseAsyncTask(Activity activity){
+    public BaseAsyncTask(Activity activity) {
         mActivity = (HomeActivity) activity;
     }
 
@@ -33,10 +31,10 @@ public abstract class BaseAsyncTask extends AsyncTask<Void, Void, Boolean>{
             doInBackground();
             return true;
         } catch (final GooglePlayServicesAvailabilityIOException availabilityException) {
-            Utils.PhoneUtils.enabled(mActivity, Utils.PhoneUtils.PLAY_SERVICES);
+            Utils.Device.enabled(mActivity, Utils.Device.PLAY_SERVICES);
         } catch (UserRecoverableAuthIOException userRecoverableException) {
             mActivity.startActivityForResult(
-                        userRecoverableException.getIntent(), HomeActivity.REQUEST_AUTHORIZATION);
+                    userRecoverableException.getIntent(), HomeActivity.REQUEST_AUTHORIZATION);
         } catch (IOException e) {
             e.printStackTrace();
         }

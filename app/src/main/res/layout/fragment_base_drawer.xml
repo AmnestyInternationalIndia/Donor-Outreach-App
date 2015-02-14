@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	android:id="@+id/drawerContainerLayout"
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="#fafafa"
+	android:fitsSystemWindows="true"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/blue_accent"
+		android:orientation="vertical"
+		android:paddingBottom="8dp"
+		android:paddingLeft="24dp"
+		android:paddingTop="8dp">
+
+		<view
+			android:id="@+id/drawerUserImage"
+			class="in.org.amnesty.outreach.views.CircleNetworkImageView"
+			android:layout_width="64dp"
+			android:layout_height="64dp"
+			android:src="@drawable/ic_action_action_account_circle"
+			/>
+
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:gravity="fill_vertical"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/drawerUserName"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="2dp"
+				android:ellipsize="end"
+				android:gravity="center_vertical"
+				android:singleLine="true"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textColor="@android:color/white"
+				android:textSize="20sp"/>
+
+			<TextView
+				android:id="@+id/drawerUserId"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="2dp"
+				android:ellipsize="end"
+				android:gravity="center_vertical"
+				android:singleLine="true"
+				android:textAppearance="?android:attr/textAppearanceMedium"
+				android:textColor="@android:color/white"
+				android:textSize="16sp"/>
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="#dadada"/>
+
+	<ListView
+		android:id="@+id/drawerListView"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:background="#fcfcfc"
+		android:choiceMode="singleChoice"
+		android:divider="@android:color/transparent"
+		android:dividerHeight="0dp"
+		android:paddingBottom="8dp"
+		android:paddingTop="8dp"
+		/>
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="1dp"
+		android:background="#dadada"/>
+
+	<Button
+		android:id="@+id/logoutButton"
+		style="?android:attr/borderlessButtonStyle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="right"
+		android:background="#efefef"
+		android:drawableLeft="@drawable/ic_action_action_exit_to_app"
+		android:drawablePadding="8dp"
+		android:gravity="center_vertical"
+		android:paddingBottom="8dp"
+		android:paddingLeft="24dp"
+		android:paddingTop="8dp"
+		android:text="@string/label_logout"
+		android:textAppearance="?android:attr/textAppearanceMedium"
+		android:textColor="@color/black_light"
+		android:textSize="18sp"
+		android:visibility="visible"/>
+
+</LinearLayout>

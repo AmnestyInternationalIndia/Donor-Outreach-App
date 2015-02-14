@@ -1,5 +1,6 @@
 <RelativeLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
@@ -25,99 +26,38 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:background="?attr/colorPrimary"
-				android:minHeight="?attr/actionBarSize"/>
+				android:minHeight="?attr/actionBarSize"
+				android:fitsSystemWindows="true"/>
+
+			<com.astuetz.PagerSlidingTabStrip
+				android:id="@+id/tabs"
+				android:layout_width="match_parent"
+				android:layout_height="?attr/actionBarSize"
+				android:background="?attr/colorPrimary"
+				app:paddingStart="48dp"
+				app:pstsTabPaddingLeftRight="16dp"/>
 
 			<!-- The rest of your content view -->
 
-
-			<LinearLayout
+			<android.support.v4.view.ViewPager
+				android:id="@+id/viewPager"
 				android:layout_width="match_parent"
 				android:layout_height="match_parent"
-				android:orientation="vertical">
-
-
-				<LinearLayout
-					android:layout_width="fill_parent"
-					android:layout_height="0dp"
-					android:layout_weight="1"
-					android:orientation="vertical">
-
-					<TextView
-						android:id="@+id/textView6"
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="Videos"
-						android:textAppearance="?android:attr/textAppearanceMedium"
-						android:textSize="18sp"
-						android:paddingTop="4dp"
-						android:paddingBottom="4dp"
-						android:paddingLeft="16dp"
-						android:paddingRight="16dp"
-						android:background="#ceecee"/>
-
-					<in.org.amnesty.outreach.views.RecyclerPlusView
-						android:id="@+id/videoRecyclerView"
-						android:layout_width="match_parent"
-						android:layout_height="match_parent"
-						android:scrollbars="vertical"
-						android:paddingLeft="16dp"
-						android:paddingRight="16dp"
-						android:paddingTop="4dp"
-						android:paddingBottom="4dp"/>
-
-				</LinearLayout>
-
-				<LinearLayout
-					android:layout_width="fill_parent"
-					android:layout_height="0dp"
-					android:layout_weight="1"
-					android:orientation="vertical">
-
-					<TextView
-						android:layout_width="match_parent"
-						android:layout_height="wrap_content"
-						android:text="PDFs"
-						android:textAppearance="?android:attr/textAppearanceMedium"
-						android:textSize="18sp"
-						android:paddingTop="4dp"
-						android:paddingBottom="4dp"
-						android:paddingLeft="16dp"
-						android:paddingRight="16dp"
-						android:background="#ceecee"/>
-
-					<!--<android.support.v7.widget.RecyclerView-->
-					<!--android:id="@+id/pdfRecyclerView"-->
-					<!--android:layout_width="match_parent"-->
-					<!--android:layout_height="match_parent"-->
-					<!--android:scrollbars="vertical"-->
-					<!--android:paddingLeft="16dp"-->
-					<!--android:paddingTop="4dp"-->
-					<!--android:paddingRight="16dp"-->
-					<!--android:paddingBottom="4dp"/>-->
-
-				</LinearLayout>
-			</LinearLayout>
+				/>
 		</LinearLayout>
 
 		<!-- Your drawer view. This can be any view, LinearLayout
 			 is just an example. As we have set fitSystemWindows=true
 			 this will be displayed under the status bar. -->
-		<LinearLayout
-			android:layout_width="304dp"
+
+		<fragment
+			android:id="@+id/navigationDrawer"
+			android:name="in.org.amnesty.outreach.fragments.BaseDrawerFragment"
+			android:layout_width="320dp"
 			android:layout_height="match_parent"
-			android:layout_gravity="left|start"
-			android:background="#fafafa"
-			android:fitsSystemWindows="true"
-			>
-
-			<fragment
-				android:id="@+id/navigationDrawer"
-				android:name="in.org.amnesty.outreach.fragments.NavigationDrawerFragment"
-				android:layout_width="match_parent"
-				android:layout_height="match_parent"
-				android:layout_gravity="start" />
-
-		</LinearLayout>
+			android:layout_gravity="start"
+			tools:layout="@layout/fragment_base_drawer"
+			/>
 
 	</android.support.v4.widget.DrawerLayout>
 

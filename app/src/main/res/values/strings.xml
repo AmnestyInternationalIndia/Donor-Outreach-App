@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Outreach</string>
-    <string name="google">Google</string>
-    <string name="play_services">Play Services</string>
+	<string name="app_name">Outreach</string>
+	<string name="google">Google</string>
+	<string name="play_services">Play Services</string>
 	<string name="no_internet_access">No internet access!</string>
-    <string name="drawer_item_home">Home</string>
-	<string name="drawer_item_video">Videos</string>
-	<string name="drawer_item_pdf">PDFs</string>
-
+	<string name="no_external_storage">External storage not found!</string>"
+	<string name="label_starred">Starred</string>
+	<string name="label_videos">Videos</string>
+	<string name="label_images">Images</string>
+	<string name="label_pdf">PDFs</string>
+	<string name="label_share">Share</string>
+	<string name="label_play">Play</string>
+	<string name="label_read">Read</string>
+	<string name="label_send_to">Send to</string>
+	<string name="message_connection_progress">Connecting …</string>
+	<string name="message_logout_progress">Logging out …</string>
+	<string name="message_logout">Pssst! Logging out will clear all your downloads.</string>
+	<string name="button_logout">Yes, Logout</string>
+	<string name="label_sync">Sync</string>
+	<string name="message_no_content">No items found.</string>
+	<string name="label_logo">for amnesty.org</string>
+	<string name="label_open">Open</string>
+	<string name="label_download">Download</string>
+	<string name="label_logout">Logout</string>
+	<string name="message_download_start">Starting download ...</string>
+	<string name="label_of">of</string>
+	<string name="content_description_thumbnail">Thumbnail</string>
+	<string name="content_description_account_image">Account image</string>
+	<string name="content_description_image">Current image</string>
+	<string name="message_downloading">Downloading ...</string>
+	<string name="message_download_complete">Download complete.</string>
+	<string name="activity_title_downloading">Downloading files</string>
+	<string name="activity_title_select_city">Select City</string>
 </resources>

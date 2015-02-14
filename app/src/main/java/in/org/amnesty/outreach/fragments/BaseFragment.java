@@ -13,31 +13,22 @@ import in.org.amnesty.outreach.activity.HomeActivity;
 public class BaseFragment extends Fragment {
 
 
-	public BaseFragment () {
-		// Required empty public constructor
-	}
+    /**
+     * Context.
+     */
+    private ActionBarActivity mActivity;
 
-	public static final String TAG = BaseFragment.class.getCanonicalName();
+    public BaseFragment() {
+        // Required empty public constructor
+    }
 
-	/**
-	 * Context.
-	 */
-	private ActionBarActivity mActivity;
+    @Override
+    public void onAttach(Activity activity) {
+        mActivity = (ActionBarActivity) activity;
+        super.onAttach(activity);
+    }
 
-
-
-	@Override
-	public void onResume() {
-		super.onResume();
-
-	}
-
-	@Override public void onAttach (Activity activity) {
-		mActivity = (ActionBarActivity) activity;
-		super.onAttach(activity);
-	}
-
-    public HomeActivity getParentActivity(){
+    public HomeActivity getParentActivity() {
         return (HomeActivity) mActivity;
     }
 }
