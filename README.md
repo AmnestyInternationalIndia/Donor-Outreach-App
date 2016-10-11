@@ -1,5 +1,6 @@
 Outreach mobile application
 
+```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.+'
@@ -20,3 +21,4 @@ dependencies {
     compile('com.crashlytics.sdk.android:crashlytics:2.2.0@aar') {
         transitive = true;
     }
+```
